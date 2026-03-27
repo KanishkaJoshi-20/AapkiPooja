@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 
 const FEED_IMAGES = [
   {
@@ -30,10 +31,16 @@ const FEED_IMAGES = [
 ];
 
 const InstagramFeed = () => {
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [gridRef, gridVisible, getStaggerStyle] = useStaggerReveal({ staggerDelay: 100 });
+
   return (
     <section className="py-28 px-8 max-w-screen-2xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-16">
+      <div
+        ref={headerRef}
+        className={`text-center mb-16 reveal ${headerVisible ? 'visible' : ''}`}
+      >
         <h2 className="font-headline text-3xl italic">@AapkiPoojaOnInstagram</h2>
         <p className="text-on-surface-variant mt-2">
           Tag us to get featured in our silk story
@@ -41,21 +48,22 @@ const InstagramFeed = () => {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div ref={gridRef} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {FEED_IMAGES.map((item, index) => (
           <div
             key={index}
-            className="aspect-square group relative overflow-hidden rounded-lg"
+            className={`aspect-square group relative overflow-hidden rounded-lg stagger-item hover-scale-subtle ${gridVisible ? 'visible' : ''}`}
+            style={getStaggerStyle(index)}
           >
             <img
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               alt={item.alt}
               src={item.src}
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
               <span
-                className="material-symbols-outlined text-white text-3xl"
+                className="material-symbols-outlined text-white text-3xl transform scale-0 group-hover:scale-100 transition-transform duration-300 delay-100"
                 style={
                   item.iconFill
                     ? { fontVariationSettings: "'FILL' 1" }

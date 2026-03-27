@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const DetailsTabs = () => {
+const DetailsTabs = ({ product }) => {
   const [activeTab, setActiveTab] = useState('details');
 
   return (
@@ -35,7 +35,7 @@ const DetailsTabs = () => {
               : 'text-on-surface-variant hover:text-on-surface'
           }`}
         >
-          Reviews (12)
+          Reviews ({product?.reviews || 0})
         </button>
       </div>
 

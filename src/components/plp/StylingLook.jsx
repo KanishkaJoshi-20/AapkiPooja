@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScrollReveal, useStaggerReveal } from '../../hooks/useScrollReveal';
 
 const EDITORIALS = [
   {
@@ -20,10 +21,16 @@ const EDITORIALS = [
 ];
 
 const StylingLook = () => {
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [gridRef, gridVisible, getStaggerStyle] = useStaggerReveal({ staggerDelay: 200 });
+
   return (
     <section className="mt-28 px-8 max-w-screen-2xl mx-auto">
       {/* Header */}
-      <div className="text-center mb-16">
+      <div
+        ref={headerRef}
+        className={`text-center mb-16 reveal ${headerVisible ? 'visible' : ''}`}
+      >
         <span className="font-label text-[10px] tracking-[0.3em] uppercase text-primary">
           Inspiration
         </span>
@@ -33,11 +40,12 @@ const StylingLook = () => {
       </div>
 
       {/* Editorial Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {EDITORIALS.map((item) => (
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {EDITORIALS.map((item, index) => (
           <div
             key={item.title}
-            className="relative group cursor-pointer overflow-hidden rounded-2xl aspect-[16/10]"
+            className={`relative group cursor-pointer overflow-hidden rounded-2xl aspect-[16/10] hover-glow stagger-item ${gridVisible ? 'visible' : ''}`}
+            style={getStaggerStyle(index)}
           >
             <img
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
@@ -52,7 +60,7 @@ const StylingLook = () => {
               <p className="text-white/80 text-sm max-w-sm mb-6">
                 {item.description}
               </p>
-              <span className="font-label text-xs uppercase tracking-widest text-white border-b border-white w-fit pb-1">
+              <span className="font-label text-xs uppercase tracking-widest text-white border-b border-white w-fit pb-1 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                 {item.cta}
               </span>
             </div>

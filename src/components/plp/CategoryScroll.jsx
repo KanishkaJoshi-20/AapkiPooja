@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const CATEGORIES = [
-  'All',
-  'New In',
-  'Dresses',
-  'Modern Ethnic',
-  'Accessories',
-  'Festive',
-  'Co-ord Sets',
-];
-
-const CategoryScroll = ({ activeCategory, onCategoryChange }) => {
+const CategoryScroll = ({ categories, activeCategory, onCategoryChange }) => {
   return (
     <section className="px-8 mt-12 mb-8 overflow-x-auto hide-scrollbar">
       <div className="flex items-center gap-3 whitespace-nowrap">
-        {CATEGORIES.map((cat) => (
+        {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => onCategoryChange(cat)}

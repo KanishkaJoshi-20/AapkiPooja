@@ -18,7 +18,14 @@ const Chatbot = () => {
   const [messages, setMessages] = useState(INITIAL_MESSAGES);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const messagesEndRef = useRef(null);
+
+  // Delay-mount the FAB for a nice entrance
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Auto-scroll to bottom
   const scrollToBottom = () => {
@@ -100,10 +107,11 @@ const Chatbot = () => {
 
         {/* Message Area */}
         <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#fbf5ef] hide-scrollbar scroll-smooth">
-          {messages.map((msg) => (
+          {messages.map((msg, idx) => (
             <div 
               key={msg.id} 
-              className={`flex w-full ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex w-full animate-fade-in-up ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              style={{ animationDelay: `${idx * 50}ms`, animationFillMode: 'both', animationDuration: '0.3s' }}
             >
               <div 
                 className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-sm shadow-sm
@@ -159,7 +167,12 @@ const Chatbot = () => {
       {/* Floating Toggle Button */}
       <button 
         onClick={toggleChat}
-        className="pointer-events-auto w-14 h-14 bg-primary text-white rounded-full shadow-[0_4px_20px_rgba(139,76,80,0.3)] hover:shadow-[0_6px_24px_rgba(139,76,80,0.4)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 relative z-50 group"
+        className={`pointer-events-auto w-14 h-14 bg-primary text-white rounded-full shadow-[0_4px_20px_rgba(139,76,80,0.3)] hover:shadow-[0_6px_24px_rgba(139,76,80,0.4)] flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-300 relative z-50 group ${
+          mounted 
+            ? 'animate-bounce-in' 
+            : 'opacity-0 scale-0'
+        } ${!isOpen ? 'animate-float' : ''}`}
+        style={{ animationDelay: mounted && !isOpen ? '0s' : '0s' }}
       >
         <span className={`material-symbols-outlined transition-all duration-300 absolute ${isOpen ? 'scale-0 opacity-0 rotate-90' : 'scale-100 opacity-100 rotate-0'}`}>
           chat_bubble
@@ -170,7 +183,7 @@ const Chatbot = () => {
         
         {/* Notification Dot */}
         {hasUnread && !isOpen && (
-          <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-white rounded-full"></span>
+          <span className="absolute top-0 right-0 w-4 h-4 bg-red-500 border-2 border-white rounded-full animate-pulse"></span>
         )}
       </button>
 

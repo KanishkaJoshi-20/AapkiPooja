@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaggerReveal } from '../hooks/useScrollReveal';
 
 const STORES = [
   {
@@ -10,7 +11,6 @@ const STORES = [
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuDat_E3ImTHsU_2EgaKErkMDacDgo44SDxU0FrCr1UsFJwIPtAIJhTUnQzlyKvjaRN60IaJVFQYuGeJ9AU5DuHLhj012W0QOgTvFV0_IhhYgj-l332a3X4-IXn2JI2VhdkQh-5F_PPj2N1GB394L3BLPO1F3BCPgnDE8s3iTVXwRlU-I4nKHWhx2KZiZpjEouFeQVEe3KM5MMLMwFlT2qneU3Ud-PNuylUGINkazaOSFERgjLmZpv9ExyOGsM8t6qsFDQmzha6wqR3q',
     alt: 'luxurious interior of an ethnic wear boutique',
-    extraClass: '',
   },
   {
     label: "Indore's Favorite Destination",
@@ -21,19 +21,21 @@ const STORES = [
     image:
       'https://lh3.googleusercontent.com/aida-public/AB6AXuBpn7lrDFPIRcuJjL6nh-Rif3PCyFSfV--70HkXbFIUiq7FKG-sTE1VwQu4jpBLCd6othNkHMR290GIrT5ya_IuEA8biknk4TN0zs7ePrxeBrtfQAyh4AQEDQO06qqJ6EYDhqIy7DhMdzmZulI1tWIPkR-1FTPl31z1dPdugds4eRSglVgO7-toXfT0U48Rnao--EcFc1RN8rafI1gbtDaO49XxbF6XuObH4LG_5sgHRFQxqzf2MCmvH6RGmHLQRyXrkdD28qvxokDt',
     alt: 'contemporary minimalist boutique interior',
-    extraClass: 'md:mt-20',
   },
 ];
 
 const StoreHighlights = () => {
+  const [gridRef, gridVisible, getStaggerStyle] = useStaggerReveal({ staggerDelay: 250 });
+
   return (
     <section className="py-28 bg-surface-container">
-      <div className="max-w-screen-2xl mx-auto px-8">
+      <div ref={gridRef} className="max-w-screen-2xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {STORES.map((store) => (
+          {STORES.map((store, index) => (
             <div
               key={store.name}
-              className={`relative group h-[500px] overflow-hidden rounded-2xl ${store.extraClass}`}
+              className={`relative group h-[500px] overflow-hidden rounded-2xl stagger-item hover-glow ${gridVisible ? 'visible' : ''} ${index === 1 ? 'md:mt-20' : ''}`}
+              style={getStaggerStyle(index)}
             >
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"

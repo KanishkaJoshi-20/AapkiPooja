@@ -1,18 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const Footer = () => {
+  const [footerRef, footerVisible] = useScrollReveal({ threshold: 0.05 });
+
   return (
-    <footer className="bg-inverse-surface text-inverse-on-surface pt-20 pb-8">
+    <footer ref={footerRef} className={`bg-inverse-surface text-inverse-on-surface pt-20 pb-8 reveal ${footerVisible ? 'visible' : ''}`}>
       <div className="max-w-screen-2xl mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
           {/* Brand Column */}
           <div className="md:col-span-4 lg:col-span-5">
             <Link
               to="/"
-              className="text-2xl font-headline italic tracking-tighter text-primary-fixed-dim block mb-6"
+              className="flex items-center gap-3 mb-6"
             >
-              Aapki Pooja
+              <img
+                src="/logo.png"
+                alt="Aapki Pooja"
+                className="h-12 w-auto object-contain brightness-110"
+              />
+              <span className="text-2xl font-headline italic tracking-tighter text-primary-fixed-dim">
+                Aapki Pooja
+              </span>
             </Link>
             <p className="text-inverse-on-surface/70 text-sm leading-relaxed mb-8 max-w-sm">
               Redefining modern aesthetics with timeless tradition. Our pieces
@@ -112,7 +122,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/collections"
+                  to="/shop"
                   className="text-inverse-on-surface/70 hover:text-white text-sm transition-colors"
                 >
                   Collections

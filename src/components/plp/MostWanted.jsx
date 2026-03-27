@@ -1,35 +1,16 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-
-const SPOTLIGHT_ITEMS = [
-  {
-    name: 'Luxe Bloom Set',
-    price: '₹18,500',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBr_qOK1GdZuVhwHVFOpzyFTXKbRwl9fUF6ZnmbLL4oVkLugQUoq7ZA9OxHXfvLBma8ccgJlO_KGLNvhr9x5vx4zzm7PWWe8AR_5bKnNoVj1m6FpotIrWhKS-bSM6vEOooGBb12mBhHq5QGwbOrBYsgXaI0Qxewcp9cUOz_vMuLZVXsJjFJSxaj04qOLRpgGf_pNWn5gGF0jYzhaQ_q717nUTKObL2nn7XfIyWZuTkZ2YH7oXLi8br66X-yT4Cpr3nGXaAew7XeG9VB',
-    alt: 'Close up of intricate embroidery',
-  },
-  {
-    name: 'Modern Muse Co-ord',
-    price: '₹9,200',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA248zmBJNXvDCzIThwTUussrJCBw0-QqAKA4v38fpSfpb_tncjux6qTDX5_aPjktHGy0fee3MSNwtS12H4NnA0j33Yt16AOvHhzT4qAFoFSHqx78yQyW5gINGBYw4fQ8No73fuPZERMncYlZZ6hKaViMo25OGcE1dytMh3zI1PTW0bfX8VN0YUL6B2A2x3EJom-WwSv4aqz6e-p_FbbPXxSOlL-dDDdPcJJnEUqUA3SDL8s9NGcNzD4Mpv1cCvE2JGS1RWTo7PkXUM',
-    alt: 'Model in contemporary wear',
-  },
-  {
-    name: 'Gold Thread Jutti',
-    price: '₹4,499',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCB5Cv8qXxW2oHEQvPLhFtpuDFx-4sV_Es8gdgDsFc3_dzuaxSnQ4l8CY61YRoqxUXtLkCE2QFyXm_snv3rXyH7CIBNBRdNCfJSjfAURYELaXlvkfOvteOPaSYSRUkSPyz5jHe14V62iHnjtev83Fc-Bb2C06UTEuQjBOhcrIVyhYUmibcrnA_IdDiwdIaxph8ac8m3grPiobXJpeA61nJJK2pSq3Zh9hXR7ZlPxpD4gNCYbY-57E5xZUbKnSFQcx6N_hpF-o9qzlez',
-    alt: 'Heritage silk detail',
-  },
-  {
-    name: 'Airy Bloom Kurta',
-    price: '₹12,200',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAAs1maaSlz3dVOolRzuoVtDVivy-5FVD8hfkFvthpCVClr1RrTZoq5LwvG6ekRQ9k4ZQaDUJ1kCdDuVdwO5bupm8ISWIF-ZgjUOvGbNF7fGg1mx0361-MyMDRbfPnYnlOTc5YiVmqVVovvegM32n_CnAZYQvK_3hwTtorO8SS4j9lwQdHdW32ROtqW3xHSZFLBJMyWklQxDMl7tsJWz4Xp7Uuclj9AUjphNNvlaiOipja9NQ_FCz0JB2wZmTI0wthWZXn2BuaCkYxU',
-    alt: 'Fluid chiffon dress',
-  },
-];
+import allProducts from '../../data/products.json';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const MostWanted = () => {
   const scrollRef = useRef(null);
+  const [sectionRef, sectionVisible] = useScrollReveal();
+
+  // Show highest rated products
+  const spotlightItems = [...allProducts]
+    .sort((a, b) => b.rating - a.rating || b.reviews - a.reviews)
+    .slice(0, 4);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -42,7 +23,7 @@ const MostWanted = () => {
   };
 
   return (
-    <section className="mt-24 bg-surface-container-low py-20 overflow-hidden">
+    <section ref={sectionRef} className={`mt-24 bg-surface-container-low py-20 overflow-hidden reveal ${sectionVisible ? 'visible' : ''}`}>
       <div className="px-8 max-w-screen-2xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-end mb-12">
@@ -73,18 +54,18 @@ const MostWanted = () => {
           ref={scrollRef}
           className="flex gap-8 overflow-x-auto hide-scrollbar pb-8"
         >
-          {SPOTLIGHT_ITEMS.map((item) => (
-            <Link to={`/product/${encodeURIComponent(item.name.toLowerCase().replace(/ /g, '-'))}`} key={item.name} className="min-w-[320px] group cursor-pointer block">
+          {spotlightItems.map((item) => (
+            <Link to={`/product/${item.id}`} key={item.id} className="min-w-[320px] group cursor-pointer block hover-lift">
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white mb-4">
                 <img
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt={item.alt}
-                  src={item.image}
+                  alt={item.name}
+                  src={item.images[0]}
                   loading="lazy"
                 />
               </div>
               <h4 className="font-headline text-xl group-hover:text-primary transition-colors">{item.name}</h4>
-              <p className="text-secondary font-semibold">{item.price}</p>
+              <p className="text-secondary font-semibold">₹{item.price.toLocaleString('en-IN')}</p>
             </Link>
           ))}
         </div>

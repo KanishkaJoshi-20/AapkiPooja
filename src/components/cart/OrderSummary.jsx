@@ -1,6 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../context/CartContext';
 
 const OrderSummary = () => {
+  const { cartItems, cartTotal } = useCart();
+  const navigate = useNavigate();
+
+  const shipping = cartTotal >= 5000 ? 0 : 499;
+  const taxRate = 0.12;
+  const tax = Math.round(cartTotal * taxRate);
+  const total = cartTotal + shipping + tax;
+
+  if (cartItems.length === 0) return null;
+
   return (
     <div className="lg:col-span-4 sticky top-32">
       <div className="bg-surface-container-low rounded-xl p-8 shadow-sm">
@@ -10,15 +22,22 @@ const OrderSummary = () => {
         <div className="space-y-4 mb-8">
           <div className="flex justify-between items-center">
             <span className="text-on-surface-variant">Subtotal</span>
-            <span className="font-medium">₹37,400</span>
+            <span className="font-medium">₹{cartTotal.toLocaleString('en-IN')}</span>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-on-surface-variant">Estimated Shipping</span>
-            <span className="text-primary font-medium">Free</span>
+            <span className={`font-medium ${shipping === 0 ? 'text-primary' : ''}`}>
+              {shipping === 0 ? 'Free' : `₹${shipping}`}
+            </span>
           </div>
+          {shipping === 0 && (
+            <p className="text-[10px] text-primary font-medium">
+              ✓ Free shipping on orders above ₹5,000
+            </p>
+          )}
           <div className="flex justify-between items-center text-sm">
             <span className="text-on-surface-variant">Estimated Tax (GST 12%)</span>
-            <span className="font-medium">₹4,488</span>
+            <span className="font-medium">₹{tax.toLocaleString('en-IN')}</span>
           </div>
         </div>
 
@@ -43,10 +62,15 @@ const OrderSummary = () => {
         <div className="pt-6 border-t border-outline-variant/30 mb-10">
           <div className="flex justify-between items-end">
             <span className="font-headline text-xl">Total</span>
-            <span className="font-headline text-3xl text-primary">₹41,888</span>
+            <span className="font-headline text-3xl text-primary">
+              ₹{total.toLocaleString('en-IN')}
+            </span>
           </div>
         </div>
-        <button className="silk-gradient w-full text-white py-5 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-300">
+        <button
+          onClick={() => navigate('/checkout')}
+          className="silk-gradient w-full text-white py-5 rounded-xl font-bold uppercase tracking-widest text-sm shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all duration-300"
+        >
           Proceed to Checkout
         </button>
 
