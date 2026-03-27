@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Search, ShoppingBag, User, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,58 +14,119 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/collections', label: 'Shop' },
+    { to: '#about', label: 'About', isHash: true },
+    { to: '#contact', label: 'Contact', isHash: true },
+  ];
+
+  const isActive = (link) => {
+    if (link.isHash) return false;
+    if (link.to === '/') return location.pathname === '/';
+    return location.pathname.startsWith(link.to);
+  };
+
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 h-20 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
-      <div className="container-custom h-full flex items-center justify-between">
-        
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-gray-900 flex-1 text-left"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+    <nav className={`fixed top-0 w-full z-50 glass-nav transition-shadow duration-300 ${isScrolled ? 'shadow-sm' : ''}`}>
+      <div className="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+        {/* Left: Logo + Links */}
+        <div className="flex items-center gap-8">
+          <Link
+            to="/"
+            className="text-2xl font-headline italic tracking-tighter text-primary"
+          >
+            Aapki Pooja
+          </Link>
 
-        {/* Desktop Links (Left) */}
-        <nav className="hidden md:flex gap-8 flex-1">
-          <a href="#new-arrivals" className="text-sm uppercase tracking-wider font-medium relative group">
-            New Arrivals
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#collections" className="text-sm uppercase tracking-wider font-medium relative group">
-            Collections
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-          </a>
-          <a href="#about" className="text-sm uppercase tracking-wider font-medium relative group">
-            About
-            <span className="absolute -bottom-1 left-0 w-0 h-px bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-          </a>
-        </nav>
-
-        {/* Logo (Center) */}
-        <div className="flex-1 flex justify-center">
-          <a href="/" className="font-serif text-brand-red text-xl md:text-2xl font-bold tracking-widest whitespace-nowrap">
-            AAP KI POOJA
-          </a>
+          {/* Desktop Nav */}
+          <div className="hidden md:flex gap-6 items-center">
+            {navLinks.map((link) =>
+              link.isHash ? (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  className="text-stone-600 font-normal hover:text-primary transition-colors font-headline text-sm tracking-tight"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className={
+                    isActive(link)
+                      ? 'text-primary border-b border-primary pb-1 font-semibold font-headline text-sm tracking-tight'
+                      : 'text-stone-600 font-normal hover:text-primary transition-colors font-headline text-sm tracking-tight'
+                  }
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </div>
         </div>
 
-        {/* Icons (Right) */}
-        <div className="flex gap-4 flex-1 justify-end">
-          <button className="text-gray-900 hover:text-brand-red transition-colors"><Search size={20} /></button>
-          <button className="hidden md:flex text-gray-900 hover:text-brand-red transition-colors"><User size={20} /></button>
-          <button className="text-gray-900 hover:text-brand-red transition-colors"><ShoppingBag size={20} /></button>
+        {/* Right: Icons */}
+        <div className="flex items-center gap-5">
+          <button className="text-stone-600 hover:opacity-80 transition-opacity p-2 flex items-center justify-center">
+            <span className="material-symbols-outlined">search</span>
+          </button>
+          <button className="text-stone-600 hover:opacity-80 transition-opacity p-2 flex items-center justify-center">
+            <span className="material-symbols-outlined">favorite</span>
+          </button>
+          <Link
+            to="/cart"
+            className="text-stone-600 hover:opacity-80 transition-opacity p-2 flex items-center justify-center relative"
+          >
+            <span className="material-symbols-outlined">shopping_bag</span>
+            <span className="absolute top-1 right-1 bg-primary text-[10px] text-white rounded-full w-4 h-4 flex items-center justify-center font-bold">
+              2
+            </span>
+          </Link>
+          {/* Mobile hamburger */}
+          <button
+            className="md:hidden text-stone-600 hover:opacity-80 transition-opacity p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <span className="material-symbols-outlined">
+              {isMobileMenuOpen ? 'close' : 'menu'}
+            </span>
+          </button>
         </div>
-
       </div>
 
       {/* Mobile Menu Dropdown */}
-      <div className={`md:hidden absolute top-20 left-0 w-full bg-white shadow-lg flex flex-col px-[5%] py-4 transition-all duration-300 origin-top ${isMobileMenuOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'}`}>
-        <a href="#new-arrivals" className="py-4 border-b border-gray-100 uppercase text-sm font-medium tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>New Arrivals</a>
-        <a href="#collections" className="py-4 border-b border-gray-100 uppercase text-sm font-medium tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>Collections</a>
-        <a href="#about" className="py-4 border-b border-gray-100 uppercase text-sm font-medium tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-        <a href="#contact" className="py-4 uppercase text-sm font-medium tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</a>
+      <div
+        className={`md:hidden absolute top-full left-0 w-full bg-white shadow-lg flex flex-col px-8 py-4 transition-all duration-300 origin-top ${
+          isMobileMenuOpen
+            ? 'scale-y-100 opacity-100'
+            : 'scale-y-0 opacity-0 pointer-events-none'
+        }`}
+      >
+        {navLinks.map((link) =>
+          link.isHash ? (
+            <a
+              key={link.label}
+              href={link.to}
+              className="py-4 border-b border-gray-100 uppercase text-sm font-medium tracking-wide text-stone-600 hover:text-primary transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </a>
+          ) : (
+            <Link
+              key={link.label}
+              to={link.to}
+              className="py-4 border-b border-gray-100 uppercase text-sm font-medium tracking-wide text-stone-600 hover:text-primary transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          )
+        )}
       </div>
-    </header>
+    </nav>
   );
 };
 
