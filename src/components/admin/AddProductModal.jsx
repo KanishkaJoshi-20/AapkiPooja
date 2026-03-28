@@ -118,10 +118,14 @@ const AddProductModal = ({ isOpen, onClose, onAdd }) => {
                 className="w-full px-4 py-3 bg-surface-container-low border-none rounded-lg text-sm focus:ring-1 focus:ring-primary/20 text-on-surface"
               >
                 <option value="">Select a category</option>
+                <option value="Tops & Tees">Tops & Tees</option>
+                <option value="Bottoms">Bottoms</option>
+                <option value="Western Dress">Western Dress</option>
+                <option value="Indo-Western">Indo-Western</option>
                 <option value="Ethnic Wear">Ethnic Wear</option>
-                <option value="Pooja Essentials">Pooja Essentials</option>
-                <option value="Home Decor">Home Decor</option>
-                <option value="Accessories">Accessories</option>
+                <option value="Footwear">Footwear</option>
+                <option value="Sunglasses">Sunglasses</option>
+                <option value="Jewelry">Jewelry</option>
               </select>
             </div>
           </div>

@@ -6,19 +6,27 @@ import Sidebar from './Sidebar';
 const initialProducts = [
   {
     id: 'PRD-001',
-    name: 'Banarasi Silk Saree',
-    category: 'Ethnic Wear',
-    stock: 4,
-    price: 45000,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuChKUa6sVTiHWmwuMODkH-Y93JfQ4DbcNqhRX-xgAw-3ZXcY96kEyj6DurHaJ77yQlVt6NBpDMtyqW5-1x5NeU4b_9FfpzSiN3d_j4SIp6T4dyJ4E9fcfR_Q2Ec-gKSDusuDyZ4cr7bDoGEuYdyYR27CdyrvhuS8LNAnI7DiY5mKT1Ssr5iuLVF87LYu9XVYW7bsIqDAo_o8TWx_LEasup5qIpVq84QXhHpSb7FdNIHs8D45Ijbz1jA0TpgWKh0vaVmJSpfuCj7xwv6'
+    name: 'Ruched Satin Crop Top',
+    category: 'Tops & Tees',
+    stock: 34,
+    price: 1899,
+    image: 'https://images.unsplash.com/photo-1564584217132-2271feaeb3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'PRD-002',
-    name: 'Temple Brass Diya',
-    category: 'Pooja Essentials',
+    name: 'Floral Midi Wrap Dress',
+    category: 'Western Dress',
+    stock: 15,
+    price: 3499,
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 'PRD-003',
+    name: 'Retro Cat-Eye Sunglasses',
+    category: 'Sunglasses',
     stock: 42,
-    price: 2800,
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCS9nyjlA5zFI2gXqtDJBcjwnOBB9D2p3BImlkQzBXW7UQf7Oqkls_LrZaUD0AKq4ct8AQ8brG1IquDva2jkv-nTT1fRe9aHCT5pnrhb5tVDuz-XS_nkW2Yns9jvvTzt9PhIdkyFGWT1wHlWQZ03YA3u171cFf6SPvtZPrrZxsk3HsmL5HbJxtKJhjBhby-k8Av30wepc6FGdSXsN_ZYZMMHvR1bVj3CWX5r61BSLkvWnQRaGxWTTudC5bJozj0Vp3r9pty6esY4Ekm'
+    price: 2499,
+    image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
 

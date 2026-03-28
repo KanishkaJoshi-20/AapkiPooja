@@ -4,30 +4,50 @@ import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 
 const CATEGORIES = [
   {
+    name: 'Tops & Tees',
+    image: 'https://images.unsplash.com/photo-1564584217132-2271feaeb3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'stylish woman wearing a trendy crop top',
+  },
+  {
+    name: 'Bottoms',
+    image: 'https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'high waist wide leg jeans flatlay',
+  },
+  {
+    name: 'Western Dress',
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'elegant floral midi dress on display',
+  },
+  {
+    name: 'Indo-Western',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBrTsvPPITV5YSGxyl-RLeJGJwzn1bvvrPtkyCFu4tlvip0dvmXWMnGnShg3v61F7_SnnLng63_lU-6pOkD0B6zYa2N6J8ugDYdze4dFAI4z6bc07xVTmq-WTsh20t-O3ge7BIudBeS9HUO8EmTrAE77RVrX_0hZLj8AhPx6rdXJALn-byUcGv96jtVKgAoDcCz5cGKUI7ZWP2rjOSeZB64mFsTRaHbhLMS0bdd-yE_XQ1Fy2PxF2YB3kZULDDiODX6QamOJp25J_K-',
+    alt: 'fusion indo-western outfit with modern styling',
+  },
+  {
     name: 'Ethnic Wear',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDoNH7ZTRhKKlmwhzm-P58PaXSS1Phx1KKNXCrefTgZ5J1PvV3pTNEO_R6ZlEG93W85NFdtD2_6sH9mdzXb78HlkEnL5_7lB_LyBtODhYj1TDXtXSL-v_ev4QfthMna3-VP4LGPV7J_8wZCXLuUtnFsmcY-ng1xR4F1rl48Y1yJRsfQ2vsF0nqyGk78O-iI3_Tn9Y_iGegCx3AGEkioKNGHX54kpVjbPVpjdqw64vcIEHo5GKoKSUCYAdGUoDFVgIl13b_V5iQIbe6j',
-    alt: 'stunning floral printed saree draped elegantly on a mannequin',
+    alt: 'stunning floral printed saree draped elegantly',
+  },
+  {
+    name: 'Footwear',
+    image: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'strappy block heels in nude color',
+  },
+  {
+    name: 'Sunglasses',
+    image: 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    alt: 'trendy cat-eye sunglasses on display',
   },
   {
     name: 'Jewelry',
     image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBbLVRmVsIqnnUkVKl6EO4kOJ6QQgfFfQwUW-2EdeJOS1yRHePcxnV27VgTMZyRnhLakcqDoCyPt2na-I_kHpG47ND8v6HVjpOSl3ROy5V805Cx_01biIf2iKVZ4neAkN_KhPVEFENwLECHvJFrakbUeCPk4XTOV2pUqD_I27kA9xoPXtCP8Yzg_NiFGV-okKCtU6t7YzAxmPyyF2AdQu0Gk3zodBGrN_HAAvxoWzXygLWLRr3rLWEixPQKuPwxozmdCb6dfkYBk5fg',
-    alt: 'model wearing traditional jewelry',
-  },
-  {
-    name: 'Pooja Essentials',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAkfnW-GDJtXEk1TLPjAcoDOYOf3kOaEm_2S_WYI3qiDv-U0OAtZEGcWLsiTY9t8yTuWyZweqRbtHhgmzQ8KINg6nofzUaVfHeZaNfQsGJTOa5jWluNUKib4IwhkoU4lLwFomftqWP5L1muYsS-SQl80Fdp9a2JElOAo8u_wZahC1vgzhAdp2TLy_VApg54JlVXGZIWT8iLYUbswOM38IEIFahj2egGdyvp7Qi_FMxTFOQU8v1EvSBz3pXko_cUS-zz_G-o53nzuY-6',
-    alt: 'detailed close-up of pooja essentials with intricate gold work',
-  },
-  {
-    name: 'Accessories',
-    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuA_r3GRmfZeowCRuBc4bI2-RcLWjAxDL9PF45j__dki8ylJO-uRrqUkO82QC3iBKmTdSgKLt8CUAxf1W-c1Y0-T5wRNXd_f9le_NNW95Cd_lGPLAooOn6CteRgZZzXrzpO7PpOaWzBocwNQa6vZgAZzw72W6iES11RjpDg2zwsS4CcyPPWSAlRaxNFxbvRe48wUExVZ3FOo62Twu4dvlR1VMMgKAcuSyGoqV2OEJ_3A6dp2GypKTU3hSEAdn7PjDX3a0qTrgdnuDlrE',
-    alt: 'model laughing in a bright yellow ethnic dress',
+    alt: 'model wearing traditional gold jewelry set',
   },
 ];
 
 const FeaturedCategories = () => {
   const [headerRef, headerVisible] = useScrollReveal();
-  const [gridRef, gridVisible, getStaggerStyle] = useStaggerReveal({ staggerDelay: 150 });
+  const [gridRef, gridVisible, getStaggerStyle] = useStaggerReveal({ staggerDelay: 100 });
 
   return (
     <section className="py-28 px-8 max-w-screen-2xl mx-auto">
@@ -37,21 +57,21 @@ const FeaturedCategories = () => {
         className={`flex flex-col md:flex-row gap-12 items-end mb-20 reveal ${headerVisible ? 'visible' : ''}`}
       >
         <h2 className="font-headline text-5xl max-w-lg">
-          Hand-picked <span className="italic">Curation</span>
+          Shop by <span className="italic">Category</span>
         </h2>
         <p className="font-body text-on-surface-variant max-w-md pb-2">
-          Discover our diverse range of handcrafted silhouettes designed for the
-          modern woman who cherishes heritage.
+          From everyday essentials to statement pieces — explore curated
+          collections designed for the modern woman.
         </p>
       </div>
 
-      {/* Category Grid */}
-      <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Category Grid — 4 columns, 2 rows */}
+      <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {CATEGORIES.map((cat, index) => (
           <Link
             key={cat.name}
             to={`/shop?category=${encodeURIComponent(cat.name)}`}
-            className={`group relative aspect-[3/4] overflow-hidden rounded-xl bg-surface-container-low block stagger-item hover-lift ${gridVisible ? 'visible' : ''}`}
+            className={`group relative overflow-hidden rounded-xl bg-surface-container-low block stagger-item hover-lift ${gridVisible ? 'visible' : ''} ${index < 4 ? 'aspect-[3/4]' : 'aspect-square'}`}
             style={getStaggerStyle(index)}
           >
             <img
@@ -61,9 +81,9 @@ const FeaturedCategories = () => {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500"></div>
-            <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-10 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-              <h3 className="font-headline text-3xl mb-4">{cat.name}</h3>
-              <span className="text-xs font-label uppercase tracking-widest border-b border-white pb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8 text-white z-10 translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+              <h3 className="font-headline text-xl lg:text-2xl mb-3">{cat.name}</h3>
+              <span className="text-[10px] font-label uppercase tracking-widest border-b border-white pb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 Explore
               </span>
             </div>
