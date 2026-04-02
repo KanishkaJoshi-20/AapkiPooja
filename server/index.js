@@ -95,6 +95,79 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+const VERIFY_TOKEN = process.env.VERIFY_TOKEN || 'mySecret123';
+
+app.get('/webhook', (req, res) => {
+  const mode = req.query['hub.mode'];
+  const token = req.query['hub.verify_token'];
+  const challenge = req.query['hub.challenge'];
+
+  console.log('Webhook verification request:', req.query);
+
+  if (mode === 'subscribe' && token === VERIFY_TOKEN) {
+    console.log('Webhook verified successfully');
+    return res.status(200).send(challenge);
+  }
+
+  console.log('Webhook verification failed');
+  return res.sendStatus(403);
+});
+
+app.post('/webhook', async (req, res) => {
+  try {
+    console.log('Incoming webhook body:');
+    console.dir(req.body, { depth: null });
+
+    const entry = req.body.entry?.[0];
+    const messaging = entry?.messaging?.[0];
+
+    // Ignore if not a text message
+    if (!messaging?.message?.text) {
+      return res.sendStatus(200);
+    }
+
+    const userMessage = messaging.message.text;
+    const senderId = messaging.sender.id;
+
+    console.log('Message from IG user:', senderId);
+    console.log('Text:', userMessage);
+
+    // Generate reply using your existing OpenAI logic
+    const aiReply = await getOpenAIResponse(userMessage);
+
+    console.log('AI reply:', aiReply);
+
+    // Send reply back to Instagram
+    await axios.post(
+      `https://graph.facebook.com/v22.0/me/messages`,
+      {
+        recipient: {
+          id: senderId
+        },
+        message: {
+          text: aiReply
+        }
+      },
+      {
+        params: {
+          access_token: process.env.IG_ACCESS_TOKEN
+        }
+      }
+    );
+
+    console.log('Reply sent to Instagram user');
+
+    res.sendStatus(200);
+
+  } catch (err) {
+    console.error(
+      'Webhook error:',
+      err.response?.data || err.message
+    );
+    res.sendStatus(500);
+  }
+});
+
 app.listen(port, () => {
   console.log(`Meta Webhook server listening at http://localhost:${port}`);
   console.log(`Verification GET URL: http://localhost:${port}/webhook`);
