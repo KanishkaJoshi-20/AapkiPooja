@@ -10,7 +10,11 @@ const axios = require('axios');
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:5173', // Allow requests from the frontend
+    methods: ['POST', 'GET'],
+    allowedHeaders: ['Content-Type']
+}));
 app.use(express.json());
 
 const openai = new OpenAI({
