@@ -32,6 +32,60 @@ const Chatbot = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Render message content with clickable URLs.
+  // - Strips trailing punctuation from URLs (so links like ".../product/x." won't include the dot)
+  // - Internal product URLs open in a new tab so the SPA can load the product page
+  const renderMessageContent = (text) => {
+    if (!text) return null;
+    // split by URL while keeping URLs in the result
+    const urlPattern = /(https?:\/\/[^\s]+)/;
+    const parts = text.split(urlPattern);
+    return parts.map((part, idx) => {
+      if (urlPattern.test(part)) {
+        // remove trailing punctuation commonly appended by sentences
+        const cleaned = part.replace(/[.,)]+$/g, '');
+        const trailing = part.slice(cleaned.length);
+
+        // try to parse the URL to decide if it's an internal product link
+        let isInternalProduct = false;
+        let pathname = '';
+        try {
+          const urlObj = new URL(cleaned);
+          pathname = urlObj.pathname + urlObj.search + urlObj.hash;
+          // treat as internal product link if path starts with /product/
+          if (pathname.startsWith('/product/')) isInternalProduct = true;
+        } catch (err) {
+          // not a fully qualified URL (shouldn't happen since regex matches http://), fallback
+        }
+
+        if (isInternalProduct) {
+          // open internal product links in a new tab so the SPA loads the correct product
+          return (
+            <span key={idx} className="break-words">
+              <a href={cleaned} target="_blank" rel="noopener noreferrer" className="underline text-primary/90">
+                {cleaned}
+              </a>
+              {trailing}
+            </span>
+          );
+        }
+
+        return (
+          <a
+            key={idx}
+            href={cleaned}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline text-primary/90 break-words"
+          >
+            {cleaned}
+          </a>
+        );
+      }
+      return <span key={idx}>{part}</span>;
+    });
+  };
+
   useEffect(() => {
     if (isOpen) {
       scrollToBottom();
@@ -59,21 +113,42 @@ const Chatbot = () => {
     setIsTyping(true);
 
     // Simulate bot response delay
-    setTimeout(() => {
-      const randomResponse = DUMMY_RESPONSES[Math.floor(Math.random() * DUMMY_RESPONSES.length)];
-      const botMessage = {
-        id: Date.now(),
-        role: 'bot',
-        content: randomResponse
-      };
-      
-      setMessages((prev) => [...prev, botMessage]);
-      setIsTyping(false);
-      
-      if (!isOpen) {
-        setHasUnread(true);
+    // Send to backend AI endpoint which has access to the inventory
+    (async () => {
+      try {
+        // allow overriding API base in Vite env: VITE_API_BASE
+        const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:3000';
+        const resp = await fetch(`${API_BASE}/api/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: userMessage.content })
+        });
+
+        if (!resp.ok) throw new Error(`Server returned ${resp.status}`);
+
+        const data = await resp.json();
+        const botText = data?.reply || 'Sorry, I could not get a response right now.';
+
+        const botMessage = {
+          id: Date.now() + 1,
+          role: 'bot',
+          content: botText
+        };
+
+        setMessages((prev) => [...prev, botMessage]);
+      } catch (err) {
+        console.error('Chatbot error:', err);
+        const errorMsg = {
+          id: Date.now() + 1,
+          role: 'bot',
+          content: 'Sorry, I\'m having trouble reaching the assistant right now. Please try again later.'
+        };
+        setMessages((prev) => [...prev, errorMsg]);
+      } finally {
+        setIsTyping(false);
+        if (!isOpen) setHasUnread(true);
       }
-    }, 1500);
+    })();
   };
 
   return (
@@ -120,7 +195,7 @@ const Chatbot = () => {
                     : 'bg-white text-on-surface border border-outline-variant/10 rounded-tl-sm'
                   }`}
               >
-                {msg.content}
+                {renderMessageContent(msg.content)}
               </div>
             </div>
           ))}
