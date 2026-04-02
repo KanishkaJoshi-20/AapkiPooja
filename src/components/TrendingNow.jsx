@@ -1,85 +1,85 @@
 import React from 'react';
-import { ArrowRight, ShoppingCart } from 'lucide-react';
-
-const products = [
-  {
-    id: 1,
-    name: "Yara Crimson Lehenga Set",
-    price: "₹14,999",
-    image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?q=80&w=600&auto=format&fit=crop",
-    tag: "HANDCRAFTED IN LKO"
-  },
-  {
-    id: 2,
-    name: "Meher Emerald Saree",
-    price: "₹8,499",
-    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=600&auto=format&fit=crop",
-    tag: "BESTSELLER"
-  },
-  {
-    id: 3,
-    name: "Noor Pearl Choker",
-    price: "₹3,999",
-    image: "https://images.unsplash.com/photo-1599643478524-fb524419de0f?q=80&w=600&auto=format&fit=crop",
-    tag: "NEW ARRIVAL"
-  },
-  {
-    id: 4,
-    name: "Zoya Velvet Kurta Set",
-    price: "₹6,299",
-    image: "https://images.unsplash.com/photo-1583391733958-d25e07fac04f?q=80&w=600&auto=format&fit=crop"
-  }
-];
+import { Link } from 'react-router-dom';
+import allProducts from '../data/products.json';
+import { useScrollReveal, useStaggerReveal } from '../hooks/useScrollReveal';
 
 const TrendingNow = () => {
+  const products = allProducts.slice(0, 4);
+  const [headerRef, headerVisible] = useScrollReveal();
+  const [gridRef, gridVisible, getStaggerStyle] = useStaggerReveal({ staggerDelay: 120 });
+
   return (
-    <section className="py-20 bg-brand-cream" id="new-arrivals">
-      <div className="container-custom">
-        <div className="flex justify-between items-end mb-12">
-          <div className="max-w-md">
-            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 mb-2 font-bold leading-tight">
-              Trending<br/>Now
-            </h2>
-            <div className="w-24 h-[2px] bg-brand-gold mt-4"></div>
-          </div>
-          <a href="/shop" className="hidden md:flex items-center gap-2 text-sm uppercase tracking-widest font-medium hover:text-brand-red transition-colors">
-            See All <ArrowRight size={16} />
-          </a>
+    <section className="bg-surface-container-low py-28 px-8">
+      <div className="max-w-screen-2xl mx-auto">
+        {/* Header */}
+        <div
+          ref={headerRef}
+          className={`text-center mb-16 reveal ${headerVisible ? 'visible' : ''}`}
+        >
+          <h2 className="font-headline text-4xl mb-4 italic">Trending Now</h2>
+          <div className="w-16 h-[1px] bg-primary mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {products.map((item) => (
-            <div key={item.id} className="group cursor-pointer">
-              <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 mb-4">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        {/* Product Grid */}
+        <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          {products.map((product, index) => (
+            <Link
+              key={product.id}
+              to={`/product/${product.id}`}
+              className={`group block stagger-item hover-lift ${gridVisible ? 'visible' : ''}`}
+              style={getStaggerStyle(index)}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-white mb-6">
+                <img
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  alt={product.name}
+                  src={product.images[0]}
+                  loading="lazy"
                 />
-                {item.tag && (
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1 text-[10px] font-semibold tracking-widest uppercase">
-                    {item.tag}
+
+                {/* Tag Badge */}
+                {product.stock > 0 && product.stock < 5 && (
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-error text-white text-[10px] font-bold px-2 py-1 uppercase tracking-tighter rounded-sm">
+                      Only {product.stock} Left
+                    </span>
                   </div>
                 )}
-                {/* Add to cart overlay */}
-                <div className="absolute bottom-0 left-0 w-full p-4 transform translate-y-full opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 bg-gradient-to-t from-black/60 to-transparent">
-                  <button className="w-full justify-center bg-white text-gray-900 py-3 text-sm font-medium tracking-wider uppercase hover:bg-brand-red hover:text-white transition-colors flex items-center gap-2">
-                    <ShoppingCart size={16} /> Add to Cart
-                  </button>
+                {product.isNew && (
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-primary-container text-on-primary-container text-[10px] font-bold px-2 py-1 uppercase tracking-tighter rounded-sm">
+                      New Arrival
+                    </span>
+                  </div>
+                )}
+
+                {/* Quick Add Button */}
+                <button
+                  onClick={(e) => e.preventDefault()}
+                  className="absolute bottom-4 inset-x-4 bg-white/90 backdrop-blur-sm py-3 rounded-lg text-xs font-label uppercase tracking-widest opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300"
+                >
+                  Quick View
+                </button>
+              </div>
+
+              {/* Product Info */}
+              <h4 className="font-headline text-lg">{product.name}</h4>
+              <div className="flex justify-between items-center mt-2">
+                <span className="text-secondary font-medium">
+                  ₹{product.price.toLocaleString('en-IN')}
+                </span>
+                <div className="flex gap-1">
+                  {product.colors.slice(0, 3).map((color) => (
+                    <div
+                      key={color.hex}
+                      className="w-3 h-3 rounded-full border border-stone-200 transition-transform duration-200 hover:scale-125"
+                      style={{ backgroundColor: color.hex }}
+                    ></div>
+                  ))}
                 </div>
               </div>
-              <div>
-                <h3 className="font-serif text-lg text-gray-900 mb-1">{item.name}</h3>
-                <p className="text-sm font-semibold text-brand-gold">{item.price}</p>
-              </div>
-            </div>
+            </Link>
           ))}
-        </div>
-        
-        <div className="mt-8 flex justify-center md:hidden">
-          <a href="/shop" className="flex items-center gap-2 text-sm uppercase tracking-[2px] font-medium hover:text-brand-red transition-colors border-b border-gray-900 pb-1">
-            See All <ArrowRight size={16} />
-          </a>
         </div>
       </div>
     </section>

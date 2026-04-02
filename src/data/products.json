@@ -1,0 +1,487 @@
+[
+  {
+    "id": "ruched-satin-crop-top",
+    "name": "Ruched Satin Crop Top",
+    "category": "Tops & Tees",
+    "price": 1899,
+    "images": [
+      "https://images.unsplash.com/photo-1564584217132-2271feaeb3c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["XS", "S", "M", "L"],
+    "colors": [
+      { "name": "Champagne", "hex": "#F7E7CE" },
+      { "name": "Black", "hex": "#1a1a1a" },
+      { "name": "Wine", "hex": "#722F37" }
+    ],
+    "stock": 34,
+    "description": "SATIN FINISH • RUCHED DETAIL. Sleek satin crop top with flattering ruched front detail and adjustable spaghetti straps. Perfect for date nights and brunches.",
+    "isNew": true,
+    "rating": 4.7,
+    "reviews": 89
+  },
+  {
+    "id": "oversized-graphic-tee",
+    "name": "Oversized Graphic Tee",
+    "category": "Tops & Tees",
+    "price": 1299,
+    "images": [
+      "https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Off White", "hex": "#FAF9F6" },
+      { "name": "Washed Black", "hex": "#3B3B3B" },
+      { "name": "Sage", "hex": "#9CAF88" }
+    ],
+    "stock": 52,
+    "description": "100% COTTON • RELAXED FIT. Premium heavyweight cotton oversized tee with vintage-inspired graphic print. Drop shoulder design for effortless streetwear style.",
+    "isNew": false,
+    "rating": 4.5,
+    "reviews": 203
+  },
+  {
+    "id": "peplum-ruffle-blouse",
+    "name": "Peplum Ruffle Blouse",
+    "category": "Tops & Tees",
+    "price": 2499,
+    "images": [
+      "https://images.unsplash.com/photo-1518622358385-8ea7d0794bf6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Dusty Rose", "hex": "#DCAE96" },
+      { "name": "Ivory", "hex": "#FFFFF0" }
+    ],
+    "stock": 18,
+    "description": "GEORGETTE • PEPLUM HEM. Elegant peplum blouse with cascading ruffle detail and V-neckline. Pairs beautifully with high-waisted bottoms for a polished look.",
+    "isNew": true,
+    "rating": 4.8,
+    "reviews": 56
+  },
+  {
+    "id": "high-waist-wide-leg-jeans",
+    "name": "High Waist Wide Leg Jeans",
+    "category": "Bottoms",
+    "price": 2999,
+    "images": [
+      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["26", "28", "30", "32", "34"],
+    "colors": [
+      { "name": "Light Wash", "hex": "#A4C8E8" },
+      { "name": "Dark Indigo", "hex": "#2B3A67" }
+    ],
+    "stock": 28,
+    "description": "PREMIUM DENIM • HIGH RISE. Flattering high-waisted wide leg jeans with a retro-modern silhouette. Raw hem finish adds an effortless edge.",
+    "isNew": false,
+    "rating": 4.6,
+    "reviews": 178
+  },
+  {
+    "id": "pleated-palazzo-pants",
+    "name": "Pleated Palazzo Pants",
+    "category": "Bottoms",
+    "price": 2299,
+    "images": [
+      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Olive", "hex": "#556B2F" },
+      { "name": "Cream", "hex": "#FFFDD0" },
+      { "name": "Charcoal", "hex": "#36454F" }
+    ],
+    "stock": 22,
+    "description": "FLOWY CREPE • PLEATED FRONT. Ultra-comfortable palazzo pants with crisp front pleats and elastic waistband. From boardroom to brunch — one pant does it all.",
+    "isNew": true,
+    "rating": 4.7,
+    "reviews": 92
+  },
+  {
+    "id": "cargo-jogger-pants",
+    "name": "Cargo Jogger Pants",
+    "category": "Bottoms",
+    "price": 1999,
+    "images": [
+      "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["XS", "S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Khaki", "hex": "#C3B091" },
+      { "name": "Black", "hex": "#1a1a1a" },
+      { "name": "Army Green", "hex": "#4B5320" }
+    ],
+    "stock": 40,
+    "description": "COTTON TWILL • UTILITY CHIC. Trendy cargo joggers with multiple utility pockets and elasticated cuffs. The perfect fusion of comfort and street style.",
+    "isNew": false,
+    "rating": 4.4,
+    "reviews": 134
+  },
+  {
+    "id": "floral-midi-wrap-dress",
+    "name": "Floral Midi Wrap Dress",
+    "category": "Western Dress",
+    "price": 3499,
+    "images": [
+      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["XS", "S", "M", "L"],
+    "colors": [
+      { "name": "Terracotta Floral", "hex": "#CC5A47" },
+      { "name": "Navy Bloom", "hex": "#1B2A4A" }
+    ],
+    "stock": 15,
+    "description": "VISCOSE RAYON • WRAP STYLE. Romantic floral midi dress with a flattering wrap design and flutter sleeves. Cinched waist creates a beautiful hourglass silhouette.",
+    "isNew": true,
+    "rating": 4.9,
+    "reviews": 67
+  },
+  {
+    "id": "bodycon-ribbed-dress",
+    "name": "Bodycon Ribbed Mini Dress",
+    "category": "Western Dress",
+    "price": 2199,
+    "images": [
+      "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["XS", "S", "M", "L"],
+    "colors": [
+      { "name": "Black", "hex": "#1a1a1a" },
+      { "name": "Mocha", "hex": "#967969" },
+      { "name": "Burgundy", "hex": "#800020" }
+    ],
+    "stock": 26,
+    "description": "RIBBED KNIT • BODY-HUGGING. Sleek bodycon mini dress in soft ribbed fabric with a square neckline and thick straps. A wardrobe staple for any occasion.",
+    "isNew": false,
+    "rating": 4.6,
+    "reviews": 145
+  },
+  {
+    "id": "satin-slip-maxi-dress",
+    "name": "Satin Slip Maxi Dress",
+    "category": "Western Dress",
+    "price": 4299,
+    "images": [
+      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1590658268037-6bf12f032f55?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["S", "M", "L"],
+    "colors": [
+      { "name": "Emerald", "hex": "#50C878" },
+      { "name": "Champagne", "hex": "#F7E7CE" },
+      { "name": "Midnight", "hex": "#191970" }
+    ],
+    "stock": 8,
+    "description": "PREMIUM SATIN • BIAS CUT. Luxurious satin slip maxi dress with delicate cowl neckline and adjustable straps. Bias-cut for a liquid drape that flatters every figure.",
+    "isNew": true,
+    "rating": 4.8,
+    "reviews": 34
+  },
+  {
+    "id": "fusion-kurti-palazzo-set",
+    "name": "Fusion Kurti Palazzo Set",
+    "category": "Indo-Western",
+    "price": 3999,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBrTsvPPITV5YSGxyl-RLeJGJwzn1bvvrPtkyCFu4tlvip0dvmXWMnGnShg3v61F7_SnnLng63_lU-6pOkD0B6zYa2N6J8ugDYdze4dFAI4z6bc07xVTmq-WTsh20t-O3ge7BIudBeS9HUO8EmTrAE77RVrX_0hZLj8AhPx6rdXJALn-byUcGv96jtVKgAoDcCz5cGKUI7ZWP2rjOSeZB64mFsTRaHbhLMS0bdd-yE_XQ1Fy2PxF2YB3kZULDDiODX6QamOJp25J_K-",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuD48gSyqBOibthc8ZydL3OCtPVllm2RGJd7ZZtnYGnTL4QLBKqGYhNBf2gFGSRI7iuGhyuXs-Id16TkSYAtXmYCPPgJsfObTFnyKW9SYdjazQ42GVR6B30BC1UAPIq8ncyfNOlSeZilgX-G2kxvD7C-q9k-DxD1USbGh6-QOmLgrJBu6NfHMa4MdB1tMzMhX-8GHkLzBi_sNL9MB4VzPzaedvsNhf2eHI6PbUoyYfGqCLchTqkO93q6pmT0Ze2oC6T7kLwkb_R6W8V4"
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Peach", "hex": "#f8d7da" },
+      { "name": "Ivory", "hex": "#e2e3e5" }
+    ],
+    "stock": 16,
+    "description": "GEORGETTE • GOTA PATTI FUSION. Modern fusion kurti with palazzo set. Traditional gota patti work meets contemporary silhouette — perfect for festive brunches.",
+    "isNew": true,
+    "rating": 4.8,
+    "reviews": 67
+  },
+  {
+    "id": "cape-style-asymmetric-kurta",
+    "name": "Cape Style Asymmetric Kurta",
+    "category": "Indo-Western",
+    "price": 4599,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAAs1maaSlz3dVOolRzuoVtDVivy-5FVD8hfkFvthpCVClr1RrTZoq5LwvG6ekRQ9k4ZQaDUJ1kCdDuVdwO5bupm8ISWIF-ZgjUOvGbNF7fGg1mx0361-MyMDRbfPnYnlOTc5YiVmqVVovvegM32n_CnAZYQvK_3hwTtorO8SS4j9lwQdHdW32ROtqW3xHSZFLBJMyWklQxDMl7tsJWz4Xp7Uuclj9AUjphNNvlaiOipja9NQ_FCz0JB2wZmTI0wthWZXn2BuaCkYxU",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuANFfzMxkR-_Lth9qzTk-IPBbJagTYL0kdt2GnwiwoxC_k641TDF7NqTlbq0InsK4NV-OeE5qOdmUisKlc67sjCF5s6BHMgwwVzd9d0cUAWIlJBvhS1VuwXkRY-_z7mbMxcFAil1B23oLdQmFwGeRWAUlSqXqLcr66tYgvYTtbjeGEGoCLmVTsorbFDVGYVU-79nGIGmGiSy0yOUwvCb4C_uaBQz41atTL7x6UQ7mMDrWhQ5ZoR1iIdaguh5CGZZuwxJy8RnAnMgU6O"
+    ],
+    "sizes": ["S", "M", "L"],
+    "colors": [
+      { "name": "Blush Pink", "hex": "#fce4ec" },
+      { "name": "Powder Blue", "hex": "#e1f5fe" }
+    ],
+    "stock": 9,
+    "description": "ORGANZA CAPE • MIRROR WORK. Statement cape kurta with dramatic asymmetric hemline and hand-embroidered mirror work. East meets West in this showstopper.",
+    "isNew": false,
+    "rating": 4.7,
+    "reviews": 53
+  },
+  {
+    "id": "dhoti-pants-crop-top-set",
+    "name": "Dhoti Pants & Crop Top Set",
+    "category": "Indo-Western",
+    "price": 3299,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC6e4ko0bRBWCGM6XCIyq-rcHzMYC708R3saTMGg5n86WhPED1gSC1CDAhjZKwtkddsbpjSJYd7l20jKhwD8yZdLqo7Kzoo1GKnQBkbhctZcKFHyd2YLJzYXqaLgx-rOGyLFJoiGFqpifL0WUCnwuBWxfqQyxHlnqXhixBzipZVBso54sG-058m63PRyRadpF1PB7X6iQK0opz_cedPSC3sWDGeTbLyGqGqw5Di3yZ6WkINvCzt0APWTRfpD41AR-j1Dw24ZiS-aOUU",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDue--JCN7WcyoTBfYRpjMEr9noeJqw59qVe56VuenE63J1IMK2PYYdUfHpHqBy0nW6veX1DJqkXoPFjsW6-KHQCX8MNumuy7Bd4l3WowlxW9N-g-N_KlF7hMeDgvKwU-KZzz9n693uTm7swZnUptnO5JpcWZRQ8ziQmqucl7LICegBoI9tkisa-G1CuT5FJSq4wjtGMYuXp13Ee3BT2QZKSAaGOXTop0BfiTB19NSXUoTnaIpEb4cMLEm8oLl67Z35Gf8v7Vl1nkDp"
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Rose Gold", "hex": "#E5989B" },
+      { "name": "Mint", "hex": "#98FB98" }
+    ],
+    "stock": 12,
+    "description": "SILK BLEND • CONTEMPORARY DRAPE. Trendy dhoti pants paired with an embroidered crop top. Traditional draping technique reimagined for the modern fashionista.",
+    "isNew": true,
+    "rating": 4.9,
+    "reviews": 88
+  },
+  {
+    "id": "heritage-gold-weaver-saree",
+    "name": "Heritage Gold Weaver Saree",
+    "category": "Ethnic Wear",
+    "price": 22900,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuAVae7fSikOdedvt_0lLv_XaWbMhIO69SJZ3CLxSkvSm3MRmTGL-L9Yv0k8QxXfY7_W6v-02oLIeF9JhB2AWTgdW9Pehe4gyGAK5-GXCvmfBIA_8Fqo_Gho6ZpPbyvkxWbO7_Mt4Qf5yHe2oW_AQLzaloz7wKpyYs44pN9PYj-twk39NNgutbVs5jFNFwb_f8NUl2lo-YlYx96RHlt2_IyEztDdwoNGDxoRcvgjWciKYUmjjVmsaBv29vt_PiaTZJqICUmxxMgxSDRr",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuC4PfAoXYonqbJyFTYmOgDUHboY_wECUNRpz4YqlhyYxajuX1INGs5QB7hlSX5ywzSiQWdHtKN21BRvAlivz5v3SrO7SL9EBnZgjHGxF3hvtK9vVSURF5e3d00KQxOnE5MDcYGGb6FV40kfAlD_J6yFqJgY3uu6OfhATQSBLRiCsk3eLJrovRXV4doiwSg47NXFaHJDnYElUixAOLTBneByRYdyHfBjFV8rj1RF02WV6MSkiGKcA4HmSMX3PYu1Dk2RgmE45QK6WtAc"
+    ],
+    "sizes": ["Free Size"],
+    "colors": [
+      { "name": "Crimson", "hex": "#8B4C50" }
+    ],
+    "stock": 4,
+    "description": "BANARASI SILK • PURE ZARI. Handloomed by master artisans over 120 days, featuring pure silver zari threads washed in 24k gold. A definitive heirloom piece.",
+    "isNew": false,
+    "rating": 5.0,
+    "reviews": 42
+  },
+  {
+    "id": "vana-chanderi-saree",
+    "name": "Vana Chanderi Saree",
+    "category": "Ethnic Wear",
+    "price": 8900,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuA-xsIjG9ZLV4E1eiCJs8msjFok-rHlDmEpPBJ12dX_dKNUrdHLAD3I1YrawkfekcC1krc0IonPmml-WyU5LU-KlGmML3sBt2mRlLSwRM8PPGR1V4ISxQ9H0pvOJdT2O0CoSYJhvJfvR2lMTvEy4jmLp8li2gFycAbhdVJ_RV6oOFx7c-C9NFfaeMu42f96f_jWlbbMCuvduTP0XjiROzhkM1NyKZ4GwnwrbvQ7SSbQqGZy4q2W2RM4dJm2abIyGB6cxD27SblcMDCN"
+    ],
+    "sizes": ["Free Size"],
+    "colors": [
+      { "name": "Emerald", "hex": "#2d6a4f" }
+    ],
+    "stock": 3,
+    "description": "CHANDERI SILK • HAND-WOVEN. Deep emerald green silk saree with traditional weaving patterns, perfect for evening occasions and festive celebrations.",
+    "isNew": false,
+    "rating": 4.6,
+    "reviews": 91
+  },
+  {
+    "id": "rose-petal-anarkali-set",
+    "name": "Rose Petal Anarkali Set",
+    "category": "Ethnic Wear",
+    "price": 14500,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDBldAIXH15WY9weLETl-OUh-u-3yBZay9LCPpcK5P_7_7DgemWSQEBLTE6uR6yPACTZRmzDFV_ne28f8QjR2ym68SDbWtB7P9swLZIa1Chjsrm5WWUEkyRoM32HK4x98ATCWMqypug7d30buumwiHLjTT-5S1JLO9h2n8smVMQwlhDkVqO5Jo7VzHD8F-F9gmxxABM61s47zrgQGOikg2hZdHKRSeEFaEzl8g19iGkAyzO0gBXzzVm0mHdAHwVCDIzg9QCz6kgaAMV",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuBLD8xaTkm-g8n8UojQey2nkPIz3idZGWgYjro-4Hx_Snw8kn9bHhfLrCO3yps7HLpynVvWlAZ66x8YxOlxSuHPQVrHvMd7zeG1R6PYdvwdgwYnRYy9FHG_eMkJJV6wdRheqxqtkR9NIpWdVVNsc_R78VhR0661dUUj3j1jtGdNrVrfbgzV1W1wZfB7UP-cNCZocgYjOt6pWxdyMEuGfeQag8_Uh6nWU3HJu9o9ZVEmTlJqQHPLBcWjECbuiV_H0PpT5Y--URU0lkLW"
+    ],
+    "sizes": ["S", "M", "L", "XL"],
+    "colors": [
+      { "name": "Blush", "hex": "#E5989B" },
+      { "name": "Deep Crimson", "hex": "#8b0000" }
+    ],
+    "stock": 12,
+    "description": "CHANDERI SILK • HAND-EMBROIDERED. Exquisite Anarkali set hand-loomed in pure chanderi silk with delicate rose petal motifs. Heritage craftsmanship at its finest.",
+    "isNew": false,
+    "rating": 4.9,
+    "reviews": 124
+  },
+  {
+    "id": "strappy-block-heels",
+    "name": "Strappy Block Heels",
+    "category": "Footwear",
+    "price": 3499,
+    "images": [
+      "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1596703263926-eb0762ee17e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["36", "37", "38", "39", "40", "41"],
+    "colors": [
+      { "name": "Nude", "hex": "#E8BEAC" },
+      { "name": "Black", "hex": "#1a1a1a" },
+      { "name": "Gold", "hex": "#D4AF37" }
+    ],
+    "stock": 20,
+    "description": "FAUX LEATHER • 3-INCH BLOCK HEEL. Versatile strappy block heels with cushioned insole for all-day comfort. The perfect heel height for work-to-dinner transitions.",
+    "isNew": true,
+    "rating": 4.6,
+    "reviews": 112
+  },
+  {
+    "id": "embellished-flat-sandals",
+    "name": "Embellished Flat Sandals",
+    "category": "Footwear",
+    "price": 1999,
+    "images": [
+      "https://images.unsplash.com/photo-1603487742131-4160ec999306?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1562273138-f46be4ebdf33?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["36", "37", "38", "39", "40"],
+    "colors": [
+      { "name": "Rose Gold", "hex": "#B76E79" },
+      { "name": "Silver", "hex": "#C0C0C0" }
+    ],
+    "stock": 35,
+    "description": "METALLIC FINISH • STONE EMBELLISHED. Glamorous flat sandals with hand-placed rhinestone detailing. Comfort meets sparkle for everyday glam.",
+    "isNew": false,
+    "rating": 4.5,
+    "reviews": 89
+  },
+  {
+    "id": "chunky-platform-sneakers",
+    "name": "Chunky Platform Sneakers",
+    "category": "Footwear",
+    "price": 3999,
+    "images": [
+      "https://images.unsplash.com/photo-1560343090-f0409e92791a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["36", "37", "38", "39", "40", "41"],
+    "colors": [
+      { "name": "White", "hex": "#FFFFFF" },
+      { "name": "Beige Mix", "hex": "#D2B48C" }
+    ],
+    "stock": 18,
+    "description": "PREMIUM CANVAS • PLATFORM SOLE. Trendy chunky platform sneakers with a 2-inch lift. Breathable upper with extra cushioning for athleisure-ready style.",
+    "isNew": true,
+    "rating": 4.7,
+    "reviews": 76
+  },
+  {
+    "id": "retro-cat-eye-sunglasses",
+    "name": "Retro Cat-Eye Sunglasses",
+    "category": "Sunglasses",
+    "price": 2499,
+    "images": [
+      "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1577803645773-f96470509666?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["Standard"],
+    "colors": [
+      { "name": "Tortoise", "hex": "#704214" },
+      { "name": "Black", "hex": "#1a1a1a" },
+      { "name": "Blush Pink", "hex": "#F4C2C2" }
+    ],
+    "stock": 42,
+    "description": "UV400 PROTECTION • ACETATE FRAME. Vintage-inspired cat-eye sunglasses with gradient lenses and lightweight acetate frames. Channel your inner Audrey Hepburn.",
+    "isNew": true,
+    "rating": 4.8,
+    "reviews": 156
+  },
+  {
+    "id": "oversized-aviator-sunglasses",
+    "name": "Oversized Aviator Sunglasses",
+    "category": "Sunglasses",
+    "price": 1899,
+    "images": [
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1508296695146-257a814070b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["Standard"],
+    "colors": [
+      { "name": "Gold Frame", "hex": "#D4AF37" },
+      { "name": "Silver Frame", "hex": "#C0C0C0" },
+      { "name": "Rose Gold", "hex": "#B76E79" }
+    ],
+    "stock": 55,
+    "description": "POLARIZED LENSES • METAL FRAME. Classic oversized aviators with polarized lenses for superior glare reduction. Lightweight metal frame with adjustable nose pads.",
+    "isNew": false,
+    "rating": 4.5,
+    "reviews": 198
+  },
+  {
+    "id": "round-gradient-sunglasses",
+    "name": "Round Gradient Sunglasses",
+    "category": "Sunglasses",
+    "price": 1599,
+    "images": [
+      "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1574258495973-f010dfbb5371?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["Standard"],
+    "colors": [
+      { "name": "Brown Gradient", "hex": "#8B4513" },
+      { "name": "Blue Gradient", "hex": "#4169E1" }
+    ],
+    "stock": 38,
+    "description": "UV400 • GRADIENT TINT. Boho-chic round sunglasses with beautiful gradient lenses. Thin wire frame adds a delicate, fashion-forward touch.",
+    "isNew": false,
+    "rating": 4.4,
+    "reviews": 87
+  },
+  {
+    "id": "kundan-bridal-choker",
+    "name": "Kundan Bridal Choker",
+    "category": "Jewelry",
+    "price": 35000,
+    "images": [
+      "https://images.unsplash.com/photo-1599643478514-4a4e0db2dc6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuD-WtPWiI5jOHSSOPMyh-NIhA9UUT3VvmjHQ0svjeUBMERVaWWLdk37k0o7p-10mZyov3E_i7hv7_Hzo_SnZCv1zegpNveVxiUrtVaZ4juJWI34K5ZuqvSHhDgLBuiuXujcszfxs6trWfqYJD_1BmYlIB664fyvp1BYNLQCFxvKwm8-v5-ASi93lHTJBNmjD0da091-4fe02NkbLCiynWGOfZy59Af1vnqgsfJnJGb9lTk0fi8Q4V9M2rUTeVr15kggWRXHrc4RtBnd"
+    ],
+    "sizes": ["Adjustable"],
+    "colors": [
+      { "name": "Gold", "hex": "#FFD700" }
+    ],
+    "stock": 2,
+    "description": "UNPOLISHED KUNDAN • 22K GOLD PLATED. Masterpiece bridal choker handcrafted delicately in Jaipur by third-generation artisans. A statement piece for your special day.",
+    "isNew": true,
+    "rating": 4.9,
+    "reviews": 34
+  },
+  {
+    "id": "pearl-jhumka-earrings",
+    "name": "Pearl Jhumka Earrings",
+    "category": "Jewelry",
+    "price": 8800,
+    "images": [
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDmofxPZHIvb1ubKIoPkzxN6qENjL_77SlqwuMA9xwqUibVUKRu-SpbPqkhveeJPTtEohfJm_KSXeM-dqUkFmRcDFp0joDaZ0zLroY6DvcTZQ8UxYprtrTY6M8zi9eKaN3woF_7PePp2q5CPAGPKt2U-bA1W0OsvhVSNhkUCDkqgtmgTPsiRD7zzt7PZ8WS7ZSb2PxD6ixqJqX2P82qnt0PKsW2yWEtPL-EK7hcLIPkDHbj5Pn0DK1P6yFlBbv_cr3JTUcTx1xQTllo",
+      "https://lh3.googleusercontent.com/aida-public/AB6AXuDEYBpVuyMORUDx1u-ifOmc69OgdPmJfJh61NKJ8Hz5eQpnbpTIT3WUAbQQXiCOijqxn4WBB9t-lu9oO8hA2JFlNg4P72v5LYIQPp3ECG4Y-TBnjbY1FsNP6OBSjP8njMnzBi5LNskIhZY10sE7_2rAC7Ps7tuJLZMEbS-bFJ-BIwdjaThhKQrCxO6oB7ovlodjnUzgUnF_J1R_qwaYB-YvFXG9pDeAYHVvK98IEl4H1LUwBvBIETl86VjImay5JQSimQhAelkikry-"
+    ],
+    "sizes": ["Standard"],
+    "colors": [
+      { "name": "Gold & Pearl", "hex": "#FFD700" },
+      { "name": "Silver & Pearl", "hex": "#C0C0C0" }
+    ],
+    "stock": 15,
+    "description": "FRESHWATER PEARLS • 22K GOLD PLATED. Handcrafted traditional jhumka earrings with genuine freshwater pearls and meenakari work.",
+    "isNew": false,
+    "rating": 4.8,
+    "reviews": 78
+  },
+  {
+    "id": "layered-chain-necklace",
+    "name": "Layered Chain Necklace",
+    "category": "Jewelry",
+    "price": 2799,
+    "images": [
+      "https://images.unsplash.com/photo-1599643478514-4a4e0db2dc6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1515562141589-67f0d569b6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
+    "sizes": ["Adjustable"],
+    "colors": [
+      { "name": "Gold", "hex": "#FFD700" },
+      { "name": "Silver", "hex": "#C0C0C0" }
+    ],
+    "stock": 30,
+    "description": "18K GOLD PLATED • ADJUSTABLE. Trendy multi-layered chain necklace with dainty pendant charms. Tarnish-resistant plating that lasts. Stack or wear solo.",
+    "isNew": true,
+    "rating": 4.6,
+    "reviews": 145
+  }
+]
